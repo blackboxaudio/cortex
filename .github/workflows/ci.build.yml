@@ -28,7 +28,7 @@ jobs:
 
       - name: Set Environment Variables
         run: |
-          TARGET_PATH=${{ runner.workspace }}/cortex/target/release
+          TARGET_PATH=target/release
           echo "TARGET_PATH=$TARGET_PATH" >> $GITHUB_ENV
 
       - name: Prepare
@@ -36,9 +36,11 @@ jobs:
           mkdir -p "${{ env.TARGET_PATH }}"
 
       - name: Configure
-        working-directory: "${{ env.TARGET_PATH }}"
-        run: cmake ../../
+        run: |
+          cd "${{ env.TARGET_PATH }}"
+          cmake ../../
 
       - name: Build
-        working-directory: "${{ env.TARGET_PATH }}"
-        run: cmake --build .
+        run: |
+          cd "${{ env.TARGET_PATH }}"
+          cmake --build . --parallel 4
