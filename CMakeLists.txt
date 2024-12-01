@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.22)
 
 option(CTX_PLUGIN_BUILD "Build for plugin target" OFF)
 
-project(cortex VERSION 0.1.0 LANGUAGES CXX)
+project(cortex VERSION 0.1.0 LANGUAGES C CXX)
 
 if(CTX_PLUGIN_BUILD)
     set(CTX_JUCE_SOURCE_DIR "../../vendor/juce/modules")
