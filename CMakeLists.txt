@@ -5,6 +5,7 @@ option(CTX_PLUGIN_BUILD "Build for plugin target" OFF)
 project(cortex VERSION 0.1.0 LANGUAGES CXX)
 
 if(CTX_PLUGIN_BUILD)
+    add_subdirectory(../../vendor/juce)
     set(CTX_JUCE_SOURCE_DIR "../../vendor/juce/modules")
 else()
     # If building with a plugin, do NOT the JUCE submodule from this library.
