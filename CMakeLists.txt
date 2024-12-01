@@ -1,13 +1,15 @@
 cmake_minimum_required(VERSION 3.14)
 
 option(CTX_PLUGIN_BUILD "Build for plugin target" OFF)
-option(CTX_JUCE_SOURCE_DIR "Set the path to JUCE" "vendor/juce/modules")
 
 project(cortex VERSION 0.1.0 LANGUAGES CXX)
 
-if(NOT CTX_PLUGIN_BUILD)
+if(CTX_PLUGIN_BUILD)
+    set(CTX_JUCE_SOURCE_DIR "../../vendor/juce/modules")
+else()
     # If building with a plugin, do NOT the JUCE submodule from this library.
     add_subdirectory(vendor/juce)
+    set(CTX_JUCE_SOURCE_DIR "vendor/juce/modules")
 endif()
 
 file(GLOB_RECURSE SRC_FILES "src/*.cpp")

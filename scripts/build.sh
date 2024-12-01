@@ -21,7 +21,7 @@ rm -rf "$TARGET_DIR"
 mkdir -p "$TARGET_DIR"
 cd $TARGET_DIR
 
-cmake $CMAKE_FLAGS ../../
+cmake ../../
 if [ $? -ne 0 ]; then
     printf "Failed to generate build files\n"
     exit 1
