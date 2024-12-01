@@ -16,11 +16,11 @@ file(GLOB_RECURSE SRC_FILES "src/*.cpp")
 
 add_library(cortex STATIC ${SRC_FILES})
 
-set_target_properties(cortex PROPERTIES PUBLIC
-    CXX_STANDARD 23
-    CXX_STANDARD_REQUIRED
-    OSX_ARCHITECTURES "x86_64;arm64"
-)
+set_target_properties(cortex PROPERTIES
+    PUBLIC
+        CXX_STANDARD 23
+        CXX_STANDARD_REQUIRED
+        OSX_ARCHITECTURES "x86_64;arm64")
 
 target_link_libraries(cortex
     PRIVATE
