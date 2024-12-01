@@ -17,7 +17,6 @@ namespace cortex {
         const juce::Colour activeFillStart = juce::Colour::fromRGBA(116, 42, 208, 255);
         const juce::Colour activeFillStop = juce::Colour::fromRGBA(144, 78, 228, 255);
 
-        float m_strokeWidth;
         float m_fontSize;
     };
 

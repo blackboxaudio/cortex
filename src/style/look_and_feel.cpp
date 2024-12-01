@@ -45,10 +45,10 @@ void CortexLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int wi
     // draw text accordingly
     g.drawText(
         readout,
-        centerX - radius, // int x (radius for suffix offset)
-        centerY - (m_fontSize * 5.0f / 12.0f), // int y (ratio based off font size)
-        rw, // int width
-        m_fontSize, // int height
+        (int)(centerX - radius), // int x (radius for suffix offset)
+        (int)(centerY - (m_fontSize * 5.0f / 12.0f)), // int y (ratio based off font size)
+        (int)rw, // int width
+        (int)m_fontSize, // int height
         juce::Justification::centred);
 
     // set color variables for gradient
