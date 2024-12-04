@@ -5,10 +5,14 @@ option(CTX_PLUGIN_BUILD "Build for plugin target" OFF)
 project(cortex VERSION 0.1.0 LANGUAGES C CXX)
 
 if(CTX_PLUGIN_BUILD)
+    # CAUTION: This assumes CMake is being run from plugin directory
+    # with JUCE modules in the vendor directory.
+#    add_subdirectory("../../vendor/juce" "../../bin/lib")
     set(CTX_JUCE_SOURCE_DIR "../../vendor/juce/modules")
 else()
-    # If building with a plugin, do NOT the JUCE submodule from this library.
-    add_subdirectory(vendor/juce)
+    # CAUTION: Only use this project's JUCE submodule if NOT working on a
+    # plugin project.
+    add_subdirectory("vendor/juce")
     set(CTX_JUCE_SOURCE_DIR "vendor/juce/modules")
 endif()
 
@@ -20,6 +24,7 @@ set_target_properties(cortex PROPERTIES
     PUBLIC
         CXX_STANDARD 23
         CXX_STANDARD_REQUIRED
+        CXX_VISIBILITY_PRESET hidden
         OSX_ARCHITECTURES "x86_64;arm64")
 
 target_link_libraries(cortex
