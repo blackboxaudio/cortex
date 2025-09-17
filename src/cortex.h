@@ -8,7 +8,6 @@
 #ifndef CORTEX_LIB_H
 #define CORTEX_LIB_H
 
-// STYLE
-#include "style/look_and_feel.h"
+#include "analyzer.h"
 
 #endif
