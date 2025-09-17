@@ -9,5 +9,8 @@
 #define CORTEX_LIB_H
 
 #include "analyzer.h"
+#include "file.h"
+#include "logger.h"
+#include "stream.h"
 
 #endif

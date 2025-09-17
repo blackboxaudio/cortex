@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.22)
 
 option(CTX_PLUGIN_BUILD "Build for plugin target" OFF)
+option(CTX_ENABLE_LOGGING "Enable logging capabilities" OFF)
 
 project(cortex VERSION 0.1.0 LANGUAGES C CXX)
 
@@ -26,6 +27,12 @@ set_target_properties(cortex PROPERTIES
         CXX_STANDARD_REQUIRED
         CXX_VISIBILITY_PRESET hidden
         OSX_ARCHITECTURES "x86_64;arm64")
+
+if (CTX_ENABLE_LOGGING)
+    target_compile_definitions(cortex PUBLIC CTX_ENABLE_LOGGING=1)
+else()
+    target_compile_definitions(cortex PUBLIC CTX_ENABLE_LOGGING=0)
+endif()
 
 target_link_libraries(cortex
     PRIVATE
