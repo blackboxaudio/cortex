@@ -1,5 +1,5 @@
-#include "logger.h"
 #include "parameter.h"
+#include "logger.h"
 
 juce::AudioProcessorValueTreeState::ParameterLayout cortex::ParameterManager::CreateParameterLayout(std::map<juce::String, cortex::Parameter> parameters)
 {
