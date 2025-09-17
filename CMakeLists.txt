@@ -18,8 +18,9 @@ else()
 endif()
 
 file(GLOB_RECURSE SRC_FILES "src/*.cpp")
+file(GLOB_RECURSE HEADER_FILES "include/*.h")
 
-add_library(cortex STATIC ${SRC_FILES})
+add_library(cortex STATIC ${SRC_FILES} ${HEADER_FILES})
 
 set_target_properties(cortex PROPERTIES
     PUBLIC
@@ -41,4 +42,10 @@ target_link_libraries(cortex
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags)
 
-target_include_directories(cortex PUBLIC ${CMAKE_CURRENT_LIST_DIR}/src PRIVATE ${CTX_JUCE_SOURCE_DIR})
+target_include_directories(cortex
+    PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CTX_JUCE_SOURCE_DIR})
