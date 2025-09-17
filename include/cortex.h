@@ -11,6 +11,7 @@
 #include "analyzer.h"
 #include "file.h"
 #include "logger.h"
+#include "parameter.h"
 #include "stream.h"
 
 #endif

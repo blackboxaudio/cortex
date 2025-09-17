@@ -1,6 +1,15 @@
 #include "logger.h"
 
-#ifdef CTX_ENABLE_LOGGING
+#if CTX_ENABLE_LOGGING
+
+#ifndef CTX_COMPANY_NAME
+#define CTX_COMPANY_NAME "Cortex"
+#endif
+
+#ifndef CTX_PLUGIN_NAME
+#define CTX_PLUGIN_NAME "Unknown"
+#endif
+
 void LogToFile(const juce::String& message, const juce::String& level)
 {
     static juce::CriticalSection logMutex;
@@ -11,7 +20,8 @@ void LogToFile(const juce::String& message, const juce::String& level)
 
     if (!initialized) {
         auto logDir = juce::File::getSpecialLocation(juce::File::userDocumentsDirectory)
-                          .getChildFile("Black Box Audio")
+                          .getChildFile(CTX_COMPANY_NAME)
+                          .getChildFile(CTX_PLUGIN_NAME)
                           .getChildFile("Logs");
 
         if (!logDir.exists()) {
