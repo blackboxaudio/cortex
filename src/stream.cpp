@@ -1,4 +1,4 @@
-#include "stream.h"
+#include "cortex/stream.h"
 
 std::vector<std::byte> cortex::StreamToVector(juce::InputStream& stream)
 {

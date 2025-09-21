@@ -1,4 +1,4 @@
-#include "analyzer.h"
+#include "cortex/analyzer.h"
 
 using namespace cortex;
 

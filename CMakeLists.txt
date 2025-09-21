@@ -18,9 +18,8 @@ else()
 endif()
 
 file(GLOB_RECURSE SRC_FILES "src/*.cpp")
-file(GLOB_RECURSE HEADER_FILES "include/*.h")
 
-add_library(cortex STATIC ${SRC_FILES} ${HEADER_FILES})
+add_library(cortex STATIC ${SRC_FILES})
 
 set_target_properties(cortex PROPERTIES
     PUBLIC

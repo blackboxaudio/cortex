@@ -8,10 +8,10 @@
 #ifndef CORTEX_LIB_H
 #define CORTEX_LIB_H
 
-#include "analyzer.h"
-#include "file.h"
-#include "logger.h"
-#include "parameter.h"
-#include "stream.h"
+#include "cortex/analyzer.h"
+#include "cortex/file.h"
+#include "cortex/logger.h"
+#include "cortex/parameter.h"
+#include "cortex/stream.h"
 
 #endif
