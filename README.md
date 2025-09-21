@@ -4,7 +4,7 @@
 [![cortex: v0.1.0](https://img.shields.io/badge/Version-v0.1.0-blue.svg)](https://github.com/blackboxaudio/cortex)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](https://github.com/blackboxaudio/cortex/blob/develop/LICENSE)
 
-> Collection of JUCE plugin components and utilities 🧠
+> Collection of C++ audio plugin components and utilities 🧠
 
 ## Overview
 
