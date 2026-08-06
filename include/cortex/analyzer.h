@@ -2,22 +2,24 @@
 
 #include <juce_dsp/juce_dsp.h>
 
+#include <atomic>
+
 namespace cortex {
     class Analyzer {
     public:
         Analyzer();
         ~Analyzer() = default;
 
-        void ProcessAudioBuffer(juce::AudioBuffer<float>& buffer);
+        void ProcessAudioBuffer(const juce::AudioBuffer<float>& buffer) noexcept;
 
-        const float* GetFFTOutputData() const { return m_fftOutputData; }
+        const float* GetFFTOutputData() const noexcept { return m_fftOutputData; }
 
-        static constexpr int GetFFTSize() { return FFT_SIZE; }
-        static constexpr int GetFFTOutputSize() { return FFT_OUTPUT_SIZE; }
+        static constexpr int GetFFTSize() noexcept { return FFT_SIZE; }
+        static constexpr int GetFFTOutputSize() noexcept { return FFT_OUTPUT_SIZE; }
 
     private:
-        void LoadFFTQueue(juce::AudioBuffer<float>& buffer);
-        void ProcessFFT();
+        void LoadFFTQueue(const juce::AudioBuffer<float>& buffer) noexcept;
+        void ProcessFFT() noexcept;
 
         static constexpr int FFT_ORDER = 11;
         static constexpr int FFT_SIZE = 1 << FFT_ORDER;
@@ -31,7 +33,7 @@ namespace cortex {
         float m_fftOutputData[FFT_OUTPUT_SIZE] = {};
 
         unsigned int m_fftQueueIndex = 0;
-        bool m_isNextFftBlockReady = false;
+        std::atomic<bool> m_isNextFftBlockReady { false };
 
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Analyzer)
     };

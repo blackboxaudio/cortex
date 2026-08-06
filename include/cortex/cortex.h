@@ -11,6 +11,7 @@
 #include "cortex/analyzer.h"
 #include "cortex/file.h"
 #include "cortex/logger.h"
+#include "cortex/midi.h"
 #include "cortex/parameter.h"
 #include "cortex/stream.h"
 
