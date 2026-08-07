@@ -13,6 +13,7 @@
 #include "cortex/logger.h"
 #include "cortex/midi.h"
 #include "cortex/parameter.h"
+#include "cortex/presets.h"
 #include "cortex/stream.h"
 
 #endif
